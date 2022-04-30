@@ -2,7 +2,7 @@ from flask import *
 from moviepy.editor import *
 import os
 import openpyxl
-import youtube_dl
+import yt_dlp
 
 
 
@@ -35,7 +35,7 @@ def download_video(urls):
         link_of_the_video = str(url)
         zxt = link_of_the_video.strip()
 
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(zxt, download=True)
             filename = ydl.prepare_filename(info)
             titles.append(filename)
