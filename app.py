@@ -61,7 +61,7 @@ def edit_video(titles,start,end):
         clip.write_videofile(titles[i])
 
     os.chdir(PARENT_DIR)
-    print("Videos Subclipped.")
+    
     return titles
 
 
@@ -105,9 +105,10 @@ def main():
         print(urls,start,end)
 
         titles = download_video(urls)
-        print("Titles of videos downlaoded ")
+        print("Videos Downloaded ")
 
         titles = edit_video(titles,start,end)
+        print("Videos Subclipped.")
 
 
 
