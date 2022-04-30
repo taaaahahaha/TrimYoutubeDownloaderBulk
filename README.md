@@ -39,15 +39,11 @@ The Web-Application is primarily focused on extracting and making subclips of Yo
 
 ## Input/Output format.
 
-Sample Input :
-
-
-
-
 - Input : Excel Sheets
 - Excel file provided should contain atleast three columns, providing urls of videos to be downloaded, start and end time stamps of corresponding videos to be clipped.
 
 - Output : .mp4 files (Individual) or refer `/static/Output` 
 
+### Sample Input :
 
 <img src="https://github.com/taaaahahaha/TrimYoutubeDownloaderBulk/blob/main/static/SampleImage.png"/>
