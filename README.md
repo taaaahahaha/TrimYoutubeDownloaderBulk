@@ -6,23 +6,27 @@
 2. Python
 3. ImageMagik (Refer PS)
 
+
+## Process
+
+The Web-Application is primarily focused on extracting and making subclips of Youtube Videos.
+
+Excel file provided should contain atleast three columns, providing urls of videos to be downloaded, start and end time stamps of corresponding videos to be clipped.
+
+
 ## Usage
 
 - `git clone https://github.com/taaaahahaha/TrimYoutubeDownloaderBulk.git`
 
 - `cd /TrimYoutubeDownloaderBulk/`
 
-
-
  ### To set-up and activate virtualenv
  
-
 `pip install virtualenv`
 
 `virtualenv env`
 
 `env/Scripts/activate`
-
 
 **** The Application will work even without virtualenv
 
@@ -37,6 +41,11 @@
 
 
 ## Input/Output format.
+
+Sample Input :
+
+
+<img src="https://github.com/taaaahahaha/TrimYoutubeDownloaderBulk/blob/main/static/SampleImage.png"/>
 
 - Input : Excel Sheets
 - Output : .mp4 files (Individual) or refer `/static/Output` 
