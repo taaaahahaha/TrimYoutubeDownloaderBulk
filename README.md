@@ -47,3 +47,8 @@ The Web-Application is primarily focused on extracting and making subclips of Yo
 ### Sample Input :
 
 <img src="https://github.com/taaaahahaha/TrimYoutubeDownloaderBulk/blob/main/static/SampleImage.png"/>
+
+### Downloaded Directory :
+
+- Downloaded : Youtube Original Videos
+- static/Outputs : Trimmed Videos
