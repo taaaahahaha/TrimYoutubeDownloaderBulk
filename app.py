@@ -3,6 +3,7 @@ from moviepy.editor import *
 import os
 import openpyxl
 import yt_dlp
+# from __future__ import unicode_literals
 
 
 
@@ -24,12 +25,16 @@ Downloades the Youtube Videos on specified DOWNLOAD_FOLDER
 Returns list of Titles(With IDS) 
 '''
 def download_video(urls):
-    os.chdir(downloaded_path)
+    # os.chdir(downloaded_path)
     titles = []
+    i=1
     for url in urls:
+        if url == None:
+            continue
 
         ydl_opts = {
             'format': 'mp4',
+            'outtmpl': f'{downloaded_path}/{i}_%(title)s.%(ext)s'
         }
 
         link_of_the_video = str(url)
@@ -37,15 +42,20 @@ def download_video(urls):
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(zxt, download=True)
-            filename = ydl.prepare_filename(info)
-            titles.append(filename)
+            video_title = info.get('title', None)
+            ydl.prepare_filename(info)
+            titles.append(f'{i}_{video_title}.mp4')
 
-    os.chdir(PARENT_DIR)
+        i+=1
+
+    # os.chdir(PARENT_DIR)
     return titles
 
 
 
 def edit_video(titles,start,end):
+
+    print("Titles in edit_video",titles)
 
     os.chdir(downloaded_path)
     video_objects = []
@@ -53,14 +63,14 @@ def edit_video(titles,start,end):
         vid = VideoFileClip(title)
         video_objects.append(vid)
 
-    os.chdir(output_path)
+    # os.chdir(output_path)
 
     for i in range(len(video_objects)):
         
         clip = video_objects[i].subclip(start[i],end[i])
-        clip.write_videofile(titles[i])
+        clip.write_videofile(f'{output_path}/{titles[i]}')
 
-    os.chdir(PARENT_DIR)
+    # os.chdir(PARENT_DIR)
     
     return titles
 
@@ -108,7 +118,11 @@ def main():
         print("Videos Downloaded ")
 
         titles = edit_video(titles,start,end)
-        print("Videos Subclipped.")
+
+        # dir = downloaded_path
+        # for f in os.listdir(dir):
+        #     os.remove(os.path.join(dir, f))
+        # print("Videos Subclipped.")
 
 
 
